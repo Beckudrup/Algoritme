@@ -6,7 +6,11 @@ public class main extends PApplet{
         PApplet.main("Start");
     }
 
-    int[] liste = {7,2,10,5,6,4,9,1,3,8};
+
+
+
+int[] liste = {7,2,10,5,6,4,9,1,3,8};
+int index = 0;
 
     public void setup(){
         display(0, liste);
