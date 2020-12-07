@@ -1,6 +1,6 @@
 import processing.core.PApplet;
 
-public class main extends PApplet{
+public class Start extends PApplet{
 
     public static void main(String[] args) {
         PApplet.main("Start");
@@ -9,13 +9,19 @@ public class main extends PApplet{
 
 
 
-int[] liste = {7,2,10,5,6,4,9,1,3,8};
-int index = 0;
+int[] liste = {7,2,5,10,6,4,9,1,3,8};
+int pointer = 0;
 
-    public void setup(){
+
+    public void setup(){ }
+
+    @Override
+    public void draw() {
+        clear();
         display(0, liste);
 
     }
+
     public void settings(){
         size(1500,1000);
     }
@@ -27,15 +33,44 @@ int index = 0;
             display(++place,liste);
         }
     }
-    public void shuffle(int[] liste){
+   // public void shuffle(int[] liste){
 
-        if (){
-            shuffle();
+        //if (){
+          //  shuffle();
+        //}
+  //  }
+
+    public int findMin(int[] liste,int pointer) {
+
+
+
+        if(pointer==liste.length-1){
+            return liste[pointer];
         }
+        int min = findMin(liste,pointer+1);
+
+            if(min>liste[pointer]){
+                return liste[pointer];
+
+        }else
+        return min;
     }
 
 
+    public int[] swap(int[] liste,int pointer,int minPointer){
+        int[] domoMrPlonty = liste;
+        int cool1 = liste[pointer];
+        int cool2 = liste[minPointer];
+        domoMrPlonty[pointer]=cool2;
+        domoMrPlonty[minPointer]=cool1;
+       return domoMrPlonty;
+    }
 
-
-
+    @Override
+    public void mouseClicked() {
+       swap(liste,pointer,findMin(liste,pointer));
+        pointer++;
+        if(pointer==10)
+            pointer=0;
+    }
 }
