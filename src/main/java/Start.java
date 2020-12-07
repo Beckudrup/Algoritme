@@ -3,10 +3,10 @@ import processing.core.PApplet;
 public class main extends PApplet{
 
     public static void main(String[] args) {
-        PApplet.main("main");
+        PApplet.main("Start");
     }
 
-int[] liste = {7,2,10,5,6,4,9,1,3,8};
+    int[] liste = {7,2,10,5,6,4,9,1,3,8};
 
     public void setup(){
         display(0, liste);
@@ -24,7 +24,7 @@ int[] liste = {7,2,10,5,6,4,9,1,3,8};
         }
     }
     public void shuffle(int[] liste){
-        
+
         if (){
             shuffle();
         }
