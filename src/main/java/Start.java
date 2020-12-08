@@ -9,7 +9,7 @@ public class Start extends PApplet{
 
 
 
-int[] liste = {7,2,5,10,6,4,9,1,3,8};
+int[] liste = {3,78,1,14,9,2,8,25,10,6};
 int pointer = 0;
 
 
@@ -26,9 +26,9 @@ int pointer = 0;
         size(1500,1000);
     }
     public void display(int place, int[] liste){
-        int value = liste[place];
+        double value = liste[place];
 
-        rect(place*10+20,height,10,-20*value);
+        rect(place*10+20,height,10, (float) (-20*value));
         if (place<liste.length-1){
             display(++place,liste);
         }
@@ -40,37 +40,36 @@ int pointer = 0;
         //}
   //  }
 
-    public int findMin(int[] liste,int pointer) {
+    public static int min(int[] elements, int index) {
 
+        if (index == elements.length - 1) {
+            return elements[index];
+        }else{
 
+        int val = min(elements, index + 1);
 
-        if(pointer==liste.length-1){
-            return liste[pointer];
-        }
-        int min = findMin(liste,pointer+1);
-
-            if(min>liste[pointer]){
-                return liste[pointer];
-
-        }else
-        return min;
+        if (elements[index] < val)
+            return elements[index];
+        else
+            return val;}
     }
 
 
-    public int[] swap(int[] liste,int pointer,int minPointer){
-        int[] domoMrPlonty = liste;
+    public int[] swap(int[] liste, int pointer, double minPointer){
         int cool1 = liste[pointer];
-        int cool2 = liste[minPointer];
-        domoMrPlonty[pointer]=cool2;
-        domoMrPlonty[minPointer]=cool1;
-       return domoMrPlonty;
+        int cool2 = liste[(int) minPointer];
+        liste[(int) minPointer]=cool1;
+        liste[pointer]=cool2;
+
+       return liste;
     }
 
     @Override
     public void mouseClicked() {
-       swap(liste,pointer,findMin(liste,pointer));
+        println(pointer);
+       swap(liste,pointer,min(liste,pointer));
         pointer++;
-        if(pointer==10)
+        if(pointer==liste.length)
             pointer=0;
     }
 }
