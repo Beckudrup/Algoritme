@@ -60,16 +60,16 @@ int r2= (int) random(liste.length);
         }
 
 
-    public static int min(int[] numbers, int startIndex, int endIndex) {
+    public static int findMin(int[] liste, int startIndex, int slutIndex) {
         int min;
-        if (startIndex == endIndex) {
+        if (startIndex == slutIndex) {
             return startIndex;
         }else{
-      min =  min(numbers, startIndex+1, endIndex);
+      min =  findMin(liste, startIndex+1, slutIndex);
 
 
 
-            if (numbers[min] > numbers[startIndex]) {
+            if (liste[min] > liste[startIndex]) {
                 return startIndex;
 
             }else
@@ -92,7 +92,7 @@ int r2= (int) random(liste.length);
 
     @Override
     public void mouseClicked() {
-  liste= swap(liste,pointer,min(liste,pointer,liste.length-1));
+  liste= swap(liste,pointer, findMin(liste,pointer,liste.length-1));
   if(pointer<liste.length-1)
   pointer++;
     }
