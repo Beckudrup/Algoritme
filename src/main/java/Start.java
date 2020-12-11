@@ -30,7 +30,7 @@ int[] liste = {1,2,3,4,5,6,7,8,9,10};
         display(0, liste);
         textAlign(CENTER);
         textSize(20);
-        text("shuffel on S", width/2,100);
+        text("Shuffel on S \nLeft click for sorting" , width/2,100);
 
     }
 
@@ -40,7 +40,7 @@ int[] liste = {1,2,3,4,5,6,7,8,9,10};
     public void display(int place, int[] liste){
         double value = liste[place];
 
-        rect(place*10+20,height,10, (float) (-20*value));
+        rect(place*60+400,height-100,50, (float) (-20*value));
         if (place<liste.length-1){
             display(++place,liste);
         }
